@@ -41,9 +41,12 @@ export function DealFilters({ deals }: DealFiltersProps) {
     setCategory(selectedCategory);
   }, []);
 
-  const handleQueryChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
-  }, []);
+  const handleQueryChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      setQuery(event.target.value);
+    },
+    [],
+  );
 
   const handleClearFilters = useCallback(() => {
     setQuery("");
@@ -52,6 +55,13 @@ export function DealFilters({ deals }: DealFiltersProps) {
 
   const hasActiveFilters =
     query.length > 0 || category !== DealFilter.AllCategories;
+  const resultsContext =
+    category !== DealFilter.AllCategories
+      ? `in ${category}`
+      : "in the current edit";
+  const resultsSummary = `${visibleDeals.length} ${
+    visibleDeals.length === 1 ? "find" : "finds"
+  } ${resultsContext}`;
 
   return (
     <section aria-label="Deal collection">
@@ -92,14 +102,16 @@ export function DealFilters({ deals }: DealFiltersProps) {
 
       <div className="site-shell py-10 sm:py-14">
         <div className="mb-8 flex items-center justify-between gap-4">
-          <p className="text-sm text-[var(--muted)]" aria-live="polite">
+          <p
+            className="min-w-0 truncate text-sm text-[var(--muted)]"
+            aria-live="polite"
+            title={resultsSummary}
+          >
             <strong className="font-semibold text-[var(--ink)]">
               {visibleDeals.length}
             </strong>{" "}
             {visibleDeals.length === 1 ? "find" : "finds"}
-            {category !== DealFilter.AllCategories
-              ? ` in ${category}`
-              : " in the current edit"}
+            {` ${resultsContext}`}
           </p>
           {hasActiveFilters && (
             <button

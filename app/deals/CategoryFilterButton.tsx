@@ -24,9 +24,10 @@ export function CategoryFilterButton({
       type="button"
       onClick={handleClick}
       aria-pressed={isSelected}
+      title={label}
       className="filter-pill"
     >
-      {label}
+      <span className="block max-w-40 truncate">{label}</span>
     </button>
   );
 }

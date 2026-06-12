@@ -11,7 +11,10 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
       <div className="max-w-lg">
         <p className="eyebrow mx-auto">Collection unavailable</p>
         <h1 className="mt-7 font-serif text-5xl tracking-[-0.04em]">The shelves are quiet.</h1>
-        <p className="mt-5 text-base leading-7 text-[var(--muted)]">
+        <p
+          title={error.message}
+          className="mt-5 line-clamp-4 break-words text-base leading-7 text-[var(--muted)]"
+        >
           We could not load the latest finds just now. {error.message}
         </p>
         <button type="button" onClick={reset} className="button-primary mt-8">
