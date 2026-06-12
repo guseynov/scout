@@ -2,7 +2,6 @@ import { BenefitCard } from "@/app/components/BenefitCard";
 import { benefits } from "@/app/data/home";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden bg-[var(--canvas)]">

@@ -9,6 +9,18 @@ const productDtoSchema = z.object({
   thumbnail: z.url(),
 });
 
+export const dealDetailsSchema = productDtoSchema.extend({
+  discountPercentage: z.number(),
+  rating: z.number(),
+  stock: z.number(),
+  brand: z.string().optional(),
+  warrantyInformation: z.string(),
+  shippingInformation: z.string(),
+  availabilityStatus: z.string(),
+  returnPolicy: z.string(),
+  minimumOrderQuantity: z.number(),
+});
+
 export const responseDtoSchema = z.object({
   products: z.array(productDtoSchema),
   total: z.number(),
@@ -18,6 +30,7 @@ export const responseDtoSchema = z.object({
 
 export type ProductDto = z.infer<typeof productDtoSchema>;
 export type ProductsResponseDto = z.infer<typeof responseDtoSchema>;
+export type DealDetails = z.infer<typeof dealDetailsSchema>;
 
 export type Deal = {
   id: number;

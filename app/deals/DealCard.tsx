@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useState } from "react";
+import { DealDetailsPreview } from "./DealDetailsPreview";
 
 type DealCardProps = {
   deal: Deal;
@@ -14,12 +15,31 @@ type DealCardProps = {
 export function DealCard({ deal, priority = false }: DealCardProps) {
   const { title, description, price, category, imageUrl } = deal;
   const [loading, setLoading] = useState(true);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+  const previewId = `deal-details-${deal.id}`;
+
   const handleImageLoad = useCallback(() => {
     setLoading(false);
   }, []);
 
+  const handlePreviewOpen = useCallback(() => {
+    setIsPreviewOpen(true);
+  }, []);
+
+  const handlePreviewClose = useCallback(() => {
+    setIsPreviewOpen(false);
+  }, []);
+
   return (
-    <article className="deal-card group flex min-w-0 flex-col">
+    <article
+      className="deal-card group relative z-0 flex min-w-0 flex-col focus-within:z-30 hover:z-30"
+      tabIndex={0}
+      aria-describedby={isPreviewOpen ? previewId : undefined}
+      onMouseEnter={handlePreviewOpen}
+      onMouseLeave={handlePreviewClose}
+      onFocus={handlePreviewOpen}
+      onBlur={handlePreviewClose}
+    >
       <div className="relative aspect-[4/4.2] overflow-hidden rounded-[1.75rem] border border-black/[0.06] bg-[var(--surface)]">
         <div
           title={category}
@@ -48,6 +68,9 @@ export function DealCard({ deal, priority = false }: DealCardProps) {
             strokeWidth={1.5}
           />
         </div>
+        {isPreviewOpen && (
+          <DealDetailsPreview dealId={deal.id} previewId={previewId} />
+        )}
       </div>
 
       <div className="flex flex-1 flex-col px-1 pt-5">

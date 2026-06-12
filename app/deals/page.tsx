@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
+import { QueryProvider } from "@/app/components/QueryProvider";
 import { getDeals } from "@/app/lib/deals";
 import { DealFilters } from "./DealFilters";
 
@@ -42,9 +43,11 @@ export default async function DealsPage() {
         </div>
       </header>
 
-      <Suspense fallback={null}>
-        <DealFilters deals={deals} />
-      </Suspense>
+      <QueryProvider>
+        <Suspense fallback={null}>
+          <DealFilters deals={deals} />
+        </Suspense>
+      </QueryProvider>
 
       <footer className="site-shell mt-20 flex flex-col gap-5 border-t border-black/10 py-10 text-sm text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between">
         <p>Good finds should travel. Share one with your people.</p>
