@@ -21,10 +21,16 @@ export function DealDetailsPreview({
     <div
       id={previewId}
       role="status"
-      className="absolute inset-x-4 bottom-4 z-20 rounded-2xl bg-[color:rgba(32,37,31,0.94)] p-4 text-white shadow-2xl backdrop-blur-md"
+      className="absolute inset-x-4 bottom-4 z-20 rounded-2xl border border-white/10 bg-[color:rgba(32,37,31,0.94)] p-4 text-white shadow-2xl backdrop-blur-md"
     >
       {isPending && (
-        <div className="space-y-2" aria-label="Loading deal details">
+        <div className="space-y-3" aria-label="Loading deal details">
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-white/55">
+              Quick view
+            </span>
+            <div className="h-2.5 w-16 animate-pulse rounded-full bg-white/15" />
+          </div>
           <div className="h-3 w-24 animate-pulse rounded-full bg-white/25" />
           <div className="h-3 w-full animate-pulse rounded-full bg-white/15" />
           <div className="h-3 w-2/3 animate-pulse rounded-full bg-white/15" />
@@ -32,11 +38,18 @@ export function DealDetailsPreview({
       )}
 
       {isError && (
-        <p className="text-sm text-white/75">Details are unavailable right now.</p>
+        <p className="text-sm text-white/75">
+          Details are unavailable right now. Try another card.
+        </p>
       )}
 
       {data && (
         <div className="space-y-3">
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-white/55">
+              Quick view
+            </span>
+          </div>
           <div className="flex items-center justify-between gap-3">
             <p className="truncate text-sm font-semibold" title={data.brand ?? data.title}>
               {data.brand ?? data.title}

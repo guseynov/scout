@@ -32,7 +32,7 @@ export function DealCard({ deal, priority = false }: DealCardProps) {
 
   return (
     <article
-      className="deal-card group relative z-0 flex min-w-0 flex-col focus-within:z-30 hover:z-30"
+      className="deal-card group relative z-0 flex min-w-0 flex-col transition duration-300 ease-out hover:z-30 focus-within:z-30 focus-visible:z-30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-4"
       tabIndex={0}
       aria-describedby={isPreviewOpen ? previewId : undefined}
       onMouseEnter={handlePreviewOpen}
@@ -40,7 +40,7 @@ export function DealCard({ deal, priority = false }: DealCardProps) {
       onFocus={handlePreviewOpen}
       onBlur={handlePreviewClose}
     >
-      <div className="relative aspect-[4/4.2] overflow-hidden rounded-[1.75rem] border border-black/[0.06] bg-[var(--surface)]">
+      <div className="relative aspect-[4/4.2] overflow-hidden rounded-[1.75rem] border border-black/[0.06] bg-[var(--surface)] transition duration-300 ease-out group-hover:-translate-y-0.5 group-focus-visible:-translate-y-0.5">
         <div
           title={category}
           className="absolute left-4 top-4 z-10 max-w-[calc(100%_-_2rem)] truncate rounded-full border border-black/10 bg-[color:rgba(255,255,255,0.78)] px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.1em] backdrop-blur-md"
@@ -68,12 +68,15 @@ export function DealCard({ deal, priority = false }: DealCardProps) {
             strokeWidth={1.5}
           />
         </div>
+        <span className="absolute bottom-4 left-4 rounded-full border border-black/10 bg-[color:rgba(255,255,255,0.82)] px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-[var(--ink)] shadow-sm transition duration-300 group-hover:bg-white group-focus-visible:bg-white">
+          Quick view
+        </span>
         {isPreviewOpen && (
           <DealDetailsPreview dealId={deal.id} previewId={previewId} />
         )}
       </div>
 
-      <div className="flex flex-1 flex-col px-1 pt-5">
+      <div className="flex flex-1 flex-col px-1 pt-4">
         <div className="flex min-w-0 items-start justify-between gap-4">
           <h2
             title={title}

@@ -12,9 +12,11 @@
 @theme inline {
   --color-background: var(--canvas);
   --color-foreground: var(--ink);
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+    "Segoe UI", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono",
+    monospace;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
 }
 
 * {
@@ -29,7 +31,19 @@ body {
   margin: 0;
   background: var(--canvas);
   color: var(--ink);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
+  font-kerning: normal;
+  font-optical-sizing: auto;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 button,
@@ -55,10 +69,10 @@ input:focus-visible {
 }
 
 .display-title {
-  font-size: clamp(4rem, 9vw, 8rem);
+  font-size: clamp(3.25rem, 7vw, 5.75rem);
   font-weight: 650;
-  line-height: 0.88;
-  letter-spacing: -0.065em;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
 }
 
 .eyebrow {

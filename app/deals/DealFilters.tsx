@@ -139,7 +139,7 @@ export function DealFilters({ deals }: DealFiltersProps) {
   const resultsContext =
     category !== DealFilter.AllCategories
       ? `in ${category}`
-      : "in the current edit";
+      : "in the current collection";
   const resultsSummary = `${visibleDeals.length} ${
     visibleDeals.length === 1 ? "find" : "finds"
   } ${resultsContext}`;
@@ -150,8 +150,8 @@ export function DealFilters({ deals }: DealFiltersProps) {
   return (
     <section aria-label="Deal collection">
       <div className="sticky top-0 z-20 border-y border-black/10 bg-[color:rgba(245,242,234,0.92)] backdrop-blur-xl">
-        <div className="site-shell py-4">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div className="site-shell py-3.5 sm:py-4">
+          <div className="flex flex-col gap-3.5 lg:flex-row lg:items-center lg:justify-between">
             <div className="scrollbar-none flex gap-2 overflow-x-auto pb-1 lg:max-w-[70%] lg:pb-0">
               <CategoryFilterButton
                 category={DealFilter.AllCategories}
@@ -170,7 +170,7 @@ export function DealFilters({ deals }: DealFiltersProps) {
               ))}
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
               <LayoutSelector layout={shopLayout} onChange={setShopLayout} />
 
               <label className="search-field">
@@ -191,8 +191,8 @@ export function DealFilters({ deals }: DealFiltersProps) {
         </div>
       </div>
 
-      <div className="site-shell py-10 sm:py-14">
-        <div className="mb-8 flex items-center justify-between gap-4">
+      <div className="site-shell py-7 sm:py-11">
+        <div className="mb-6 grid gap-3 border-b border-black/10 pb-5 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
           <p
             className="min-w-0 truncate text-sm text-[var(--muted)]"
             aria-live="polite"
@@ -204,14 +204,18 @@ export function DealFilters({ deals }: DealFiltersProps) {
             {visibleDeals.length === 1 ? "find" : "finds"}
             {` ${resultsContext}`}
           </p>
-          {hasActiveFilters && (
+          {hasActiveFilters ? (
             <button
               type="button"
               onClick={handleClearFilters}
-              className="text-link text-sm"
+              className="text-link text-sm lg:justify-self-end"
             >
               Clear filters
             </button>
+          ) : (
+            <p className="text-sm text-[var(--muted)] lg:justify-self-end">
+              Search or narrow by category to refine the collection.
+            </p>
           )}
         </div>
 

@@ -24,7 +24,7 @@ export default function Home() {
         </Link>
       </nav>
 
-      <section className="site-shell grid min-h-[calc(100vh-5rem)] items-center gap-12 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
+      <section className="site-shell grid gap-12 py-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-start lg:py-18">
         <div className="max-w-3xl">
           <div className="eyebrow mb-7">
             <span className="size-2 rounded-full bg-[var(--accent)]" />
@@ -55,16 +55,9 @@ export default function Home() {
             </a>
           </div>
           <div className="mt-14 flex flex-wrap gap-x-8 gap-y-3 text-sm text-[var(--muted)]">
-            <span>
-              <strong className="text-[var(--ink)]">30</strong> fresh finds
-            </span>
-            <span>
-              <strong className="text-[var(--ink)]">12</strong> categories
-            </span>
-            <span>
-              <strong className="text-[var(--ink)]">0</strong> sponsored
-              placements
-            </span>
+            <span>Member-sourced</span>
+            <span>Clear pricing</span>
+            <span>No sponsored placements</span>
           </div>
         </div>
 
@@ -112,18 +105,21 @@ export default function Home() {
         id="why"
         className="border-t border-black/10 bg-[var(--ink)] text-white"
       >
-        <div className="site-shell py-20 sm:py-28">
-          <div className="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-            <div>
-              <p className="eyebrow !border-white/15 !bg-white/5 !text-white/70">
-                How it works
-              </p>
-              <h2 className="mt-6 max-w-xl font-serif text-4xl tracking-[-0.03em] sm:text-5xl">
-                A marketplace with a point of view.
-              </h2>
-            </div>
+        <div className="site-shell grid gap-12 py-20 sm:py-28 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
+          <div className="max-w-md lg:sticky lg:top-24 lg:self-start">
+            <p className="eyebrow !border-white/15 !bg-white/5 !text-white/70">
+              How it works
+            </p>
+            <h2 className="mt-6 max-w-sm font-serif text-3xl tracking-[-0.025em] sm:text-4xl">
+              A marketplace with a point of view.
+            </h2>
+            <p className="mt-5 max-w-md text-sm leading-7 text-white/60">
+              Common Good keeps the collection tight on purpose: useful finds,
+              fewer distractions, and a clear path from curiosity to purchase.
+            </p>
           </div>
-          <div className="grid border-t border-white/15 md:grid-cols-3">
+
+          <div className="border-t border-white/15">
             {benefits.map((benefit) => (
               <BenefitCard key={benefit.number} benefit={benefit} />
             ))}

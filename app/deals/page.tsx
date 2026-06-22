@@ -24,11 +24,11 @@ export default async function DealsPage() {
         </Link>
       </nav>
 
-      <header className="site-shell pb-10 pt-14 sm:pb-14 sm:pt-20">
-        <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-          <div>
+      <header className="site-shell py-8 sm:py-12">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)] lg:items-end">
+          <div className="max-w-3xl">
             <p className="eyebrow">The community collection</p>
-            <h1 className="mt-6 max-w-4xl font-serif text-5xl leading-[0.95] tracking-[-0.045em] sm:text-7xl lg:text-8xl">
+            <h1 className="mt-4 max-w-4xl font-serif text-4xl leading-[0.98] tracking-[-0.03em] sm:text-5xl lg:text-[4.5rem]">
               Things worth
               <span className="italic text-[var(--accent-dark)]">
                 {" "}
@@ -36,7 +36,7 @@ export default async function DealsPage() {
               </span>
             </h1>
           </div>
-          <p className="max-w-sm text-base leading-7 text-[var(--muted)] lg:pb-2">
+          <p className="max-w-sm text-base leading-7 text-[var(--muted)] lg:justify-self-end lg:pb-2">
             A living shortlist of useful, delightful, and well-priced finds.
             Selected with care, refreshed often.
           </p>
