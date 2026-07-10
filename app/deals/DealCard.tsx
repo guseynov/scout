@@ -32,7 +32,7 @@ export function DealCard({ deal, priority = false }: DealCardProps) {
 
   return (
     <article
-      className="deal-card group relative z-0 flex min-w-0 flex-col transition duration-300 ease-out hover:z-30 focus-within:z-30 focus-visible:z-30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-4"
+      className="deal-card group relative z-0 flex min-w-0 flex-col transition duration-300 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-4"
       tabIndex={0}
       aria-describedby={isPreviewOpen ? previewId : undefined}
       onMouseEnter={handlePreviewOpen}
