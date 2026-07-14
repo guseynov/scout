@@ -15,7 +15,7 @@ export function ProductGallery({ images, title }: ProductGalleryProps) {
 
   return (
     <section aria-label={`${title} product images`}>
-      <div className="relative aspect-square overflow-hidden rounded-[1.75rem] bg-[var(--surface)] sm:rounded-[2.5rem]">
+      <div className="relative aspect-square overflow-hidden rounded-xl border border-[var(--line)] bg-[var(--white)]">
         <Image
           key={mainImage}
           src={mainImage}
@@ -35,10 +35,10 @@ export function ProductGallery({ images, title }: ProductGalleryProps) {
               type="button"
               onClick={() => setSelectedImage(index)}
               className={clsx(
-                "relative size-16 shrink-0 overflow-hidden rounded-xl bg-[var(--surface)] transition sm:size-[4.5rem]",
+                "relative size-16 shrink-0 overflow-hidden rounded-lg border transition sm:size-[4.5rem]",
                 selectedImage === index
-                  ? "opacity-100"
-                  : "opacity-65 hover:opacity-100",
+                  ? "border-[var(--blue)] bg-[var(--white)] opacity-100"
+                  : "border-transparent bg-[var(--surface)] opacity-70 hover:border-[var(--line)] hover:opacity-100",
               )}
               aria-label={`Show image ${index + 1} of ${images.length}`}
               aria-pressed={selectedImage === index}

@@ -11,15 +11,15 @@ product
 
 ## Product Purpose
 
-Common Good helps a community surface useful, well-priced products without ad-auction noise or clutter. The core job is to browse, filter, preview, and share deals with confidence.
+Scout helps a community surface useful, well-priced products without ad-auction noise or clutter. The core job is to browse, filter, preview, and share finds with confidence.
 
 Success means people find relevant items quickly, trust the shortlist, and do not need extra tabs or detours to make a decision.
 
 ## Brand Personality
 
-Calm, selective, trustworthy, practical.
+Practical, clear, community-backed, confident.
 
-The voice should feel concise and editorial without being precious. The interface should read like a thoughtful shortlist from someone who knows what matters.
+The voice should feel concise and useful without being salesy. The interface should read like a field guide from people who have done the checking.
 
 ## Anti-references
 
@@ -27,6 +27,7 @@ The voice should feel concise and editorial without being precious. The interfac
 - Search-result pages that bury relevance under ads, badges, and repetitive listings.
 - Dark-pattern commerce flows that make filtering, previewing, or returning to the collection feel sticky.
 - Overdecorated UI chrome or gimmicky motion that competes with the products themselves.
+- Generic editorial-marketplace styling: warm paper, serif italics, oversized pills, glass overlays, and decorative product cards.
 
 ## Design Principles
 

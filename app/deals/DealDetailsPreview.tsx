@@ -21,13 +21,13 @@ export function DealDetailsPreview({
     <div
       id={previewId}
       role="status"
-      className="pointer-events-none absolute inset-x-4 bottom-4 z-20 rounded-2xl border border-white/10 bg-[color:rgba(32,37,31,0.94)] p-4 text-white shadow-2xl backdrop-blur-md"
+      className="pointer-events-none absolute inset-x-4 bottom-4 z-20 rounded-lg bg-[var(--ink)] p-4 text-white"
     >
       {isPending && (
         <div className="space-y-3" aria-label="Loading deal details">
           <div className="flex items-center justify-between gap-3">
-            <span className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-white/55">
-              Quick view
+            <span className="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-white/60">
+              Quick facts
             </span>
             <div className="h-2.5 w-16 animate-pulse rounded-full bg-white/15" />
           </div>
@@ -46,8 +46,8 @@ export function DealDetailsPreview({
       {data && (
         <div className="space-y-3">
           <div className="flex items-center justify-between gap-3">
-            <span className="text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-white/55">
-              Quick view
+            <span className="text-[0.68rem] font-bold uppercase tracking-[0.08em] text-white/60">
+              Quick facts
             </span>
           </div>
           <div className="flex items-center justify-between gap-3">
@@ -55,7 +55,7 @@ export function DealDetailsPreview({
               {data.brand ?? data.title}
             </p>
             {data.discountPercentage > 0 && (
-              <span className="shrink-0 rounded-full bg-[var(--accent)] px-2 py-1 text-[0.65rem] font-bold">
+              <span className="status-badge shrink-0">
                 {Math.round(data.discountPercentage)}% off
               </span>
             )}
@@ -63,7 +63,7 @@ export function DealDetailsPreview({
 
           <div className="grid grid-cols-2 gap-x-3 gap-y-2 text-xs text-white/75">
             <span className="flex min-w-0 items-center gap-1.5">
-              <Star aria-hidden="true" className="size-3.5 text-[#e9b95f]" fill="currentColor" />
+              <Star aria-hidden="true" className="size-3.5 text-[#8db0ff]" fill="currentColor" />
               {data.rating.toFixed(1)} rating
             </span>
             <span className="flex min-w-0 items-center gap-1.5 truncate" title={data.availabilityStatus}>

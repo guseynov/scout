@@ -10,15 +10,15 @@ export default function LayoutSelector({
   onChange: (layout: LayoutModel) => void;
 }) {
   return (
-    <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-[color:rgba(255,255,255,0.35)] p-1">
+    <div className="inline-flex items-center border border-[var(--line)] bg-[var(--white)] p-1">
       <button
         type="button"
         onClick={() => onChange(LayoutModel.Comfortable)}
         className={clsx(
-          "inline-flex min-h-11 items-center gap-2 rounded-full px-3 py-2 text-sm font-medium transition",
+          "inline-flex min-h-9 items-center gap-2 rounded-[0.25rem] px-2.5 py-2 text-sm font-bold transition",
           layout === LayoutModel.Comfortable
-            ? "bg-[var(--ink)] text-white"
-            : "text-[var(--muted)] hover:bg-white/65 hover:text-[var(--ink)]",
+            ? "bg-[var(--blue)] text-white"
+            : "text-[var(--muted)] hover:bg-[var(--surface)] hover:text-[var(--ink)]",
         )}
         aria-label="Comfortable grid view"
         aria-pressed={layout === LayoutModel.Comfortable}
@@ -30,10 +30,10 @@ export default function LayoutSelector({
         type="button"
         onClick={() => onChange(LayoutModel.Dense)}
         className={clsx(
-          "inline-flex min-h-11 items-center gap-2 rounded-full px-3 py-2 text-sm font-medium transition",
+          "inline-flex min-h-9 items-center gap-2 rounded-[0.25rem] px-2.5 py-2 text-sm font-bold transition",
           layout === LayoutModel.Dense
-            ? "bg-[var(--ink)] text-white"
-            : "text-[var(--muted)] hover:bg-white/65 hover:text-[var(--ink)]",
+            ? "bg-[var(--blue)] text-white"
+            : "text-[var(--muted)] hover:bg-[var(--surface)] hover:text-[var(--ink)]",
         )}
         aria-label="Dense grid view"
         aria-pressed={layout === LayoutModel.Dense}

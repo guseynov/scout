@@ -33,11 +33,21 @@ export type ProductDto = z.infer<typeof productDtoSchema>;
 export type ProductsResponseDto = z.infer<typeof responseDtoSchema>;
 export type DealDetails = z.infer<typeof dealDetailsSchema>;
 
-export type Deal = {
-  id: number;
-  title: string;
-  description: string;
-  price: string;
-  category: string;
-  imageUrl: string;
-};
+export const dealSchema = z.object({
+  id: z.number(),
+  title: z.string(),
+  description: z.string(),
+  price: z.string(),
+  category: z.string(),
+  imageUrl: z.url(),
+});
+
+export const dealsPageSchema = z.object({
+  deals: z.array(dealSchema),
+  total: z.number().int().nonnegative(),
+  skip: z.number().int().nonnegative(),
+  limit: z.number().int().positive(),
+});
+
+export type Deal = z.infer<typeof dealSchema>;
+export type DealsPage = z.infer<typeof dealsPageSchema>;

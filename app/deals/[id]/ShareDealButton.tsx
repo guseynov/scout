@@ -11,7 +11,7 @@ export function ShareDealButton({ title }: ShareDealButtonProps) {
   const [copied, setCopied] = useState(false);
 
   const handleShare = async () => {
-    const shareData = { title: `${title} | Common Good`, url: window.location.href };
+    const shareData = { title: `${title} | Scout`, url: window.location.href };
 
     try {
       if (navigator.share) {

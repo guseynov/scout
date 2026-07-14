@@ -3,10 +3,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Common Good",
-    template: "%s | Common Good",
+    default: "Scout",
+    template: "%s | Scout",
   },
-  description: "A community-curated collection of useful, delightful finds.",
+  description: "Useful finds, checked by people.",
 };
 
 export default function RootLayout({

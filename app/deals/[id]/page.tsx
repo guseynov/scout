@@ -5,6 +5,7 @@ import { ArrowLeft, BadgeCheck, PackageCheck, Star, Truck } from "lucide-react";
 import { getDealDetails } from "@/app/lib/dealDetails";
 import { ProductGallery } from "./ProductGallery";
 import { ShareDealButton } from "./ShareDealButton";
+import { BrandLockup } from "@/app/components/BrandLockup";
 
 type DealPageProps = {
   params: Promise<{ id: string }>;
@@ -57,18 +58,10 @@ export default async function DealPage({ params }: DealPageProps) {
   return (
     <main className="min-h-screen bg-[var(--canvas)]">
       <nav
-        className="site-shell flex min-h-20 items-center justify-between gap-4 border-b border-black/10"
+        className="site-nav site-shell flex items-center justify-between gap-4"
         aria-label="Main navigation"
       >
-        <Link
-          href="/"
-          className="flex shrink-0 items-center gap-3 font-semibold tracking-[-0.02em]"
-        >
-          <span className="grid size-9 place-items-center rounded-full bg-[var(--ink)] text-sm font-semibold text-white">
-            C
-          </span>
-          <span className="hidden sm:inline">Common Good</span>
-        </Link>
+        <BrandLockup compact />
         <Link href="/deals" className="text-link text-sm">
           <ArrowLeft aria-hidden="true" className="size-4" />
           Back to collection
@@ -97,11 +90,11 @@ export default async function DealPage({ params }: DealPageProps) {
             aria-labelledby="deal-title"
           >
             <div className="flex items-start justify-between gap-5">
-              <p className="font-mono text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-[var(--muted)]">
+              <p className="utility-label">
                 {deal.brand ?? formatCategory(deal.category)}
               </p>
               {deal.discountPercentage > 0 && (
-                <span className="shrink-0 rounded-full bg-[var(--accent)] px-3 py-1.5 text-[0.7rem] font-bold text-white">
+                <span className="status-badge shrink-0">
                   {Math.round(deal.discountPercentage)}% off
                 </span>
               )}
@@ -109,16 +102,16 @@ export default async function DealPage({ params }: DealPageProps) {
 
             <h1
               id="deal-title"
-              className="mt-4 font-serif text-4xl leading-[0.98] tracking-[-0.03em] sm:text-5xl"
+              className="mt-4 text-4xl font-bold leading-[0.98] tracking-[-0.04em] sm:text-5xl"
             >
               {deal.title}
             </h1>
 
-            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 border-y border-black/10 py-4 text-sm">
-              <span className="flex items-center gap-2 font-medium">
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 border-y border-[var(--line)] py-4 text-sm">
+              <span className="flex items-center gap-2 font-semibold">
                 <Star
                   aria-hidden="true"
-                  className="size-4 text-[#a8771d]"
+                  className="size-4 text-[var(--blue)]"
                   fill="currentColor"
                 />
                 {deal.rating.toFixed(1)} rating
@@ -129,7 +122,7 @@ export default async function DealPage({ params }: DealPageProps) {
               </span>
             </div>
 
-            <p className="mt-6 font-mono text-3xl font-semibold tracking-[-0.04em]">
+            <p className="mt-6 text-3xl font-extrabold tracking-[-0.04em]">
               ${deal.price.toFixed(2)}
             </p>
             <p className="mt-6 max-w-[65ch] text-base leading-7 text-[var(--muted)]">
@@ -143,11 +136,11 @@ export default async function DealPage({ params }: DealPageProps) {
               </Link>
             </div>
 
-            <dl className="mt-10 divide-y divide-black/10 border-y border-black/10 text-sm">
+            <dl className="mt-10 divide-y divide-[var(--line)] border-y border-[var(--line)] text-sm">
               <div className="grid grid-cols-[auto_1fr] gap-x-3 py-4">
                 <Truck
                   aria-hidden="true"
-                  className="mt-0.5 size-4 text-[var(--accent-dark)]"
+                  className="mt-0.5 size-4 text-[var(--blue)]"
                 />
                 <div>
                   <dt className="font-semibold">Delivery</dt>
@@ -159,7 +152,7 @@ export default async function DealPage({ params }: DealPageProps) {
               <div className="grid grid-cols-[auto_1fr] gap-x-3 py-4">
                 <BadgeCheck
                   aria-hidden="true"
-                  className="mt-0.5 size-4 text-[var(--accent-dark)]"
+                  className="mt-0.5 size-4 text-[var(--blue)]"
                 />
                 <div>
                   <dt className="font-semibold">Covered and considered</dt>
@@ -171,7 +164,7 @@ export default async function DealPage({ params }: DealPageProps) {
               <div className="grid grid-cols-[auto_1fr] gap-x-3 py-4">
                 <PackageCheck
                   aria-hidden="true"
-                  className="mt-0.5 size-4 text-[var(--accent-dark)]"
+                  className="mt-0.5 size-4 text-[var(--blue)]"
                 />
                 <div>
                   <dt className="font-semibold">Availability</dt>
