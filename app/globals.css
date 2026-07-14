@@ -313,21 +313,22 @@ input:focus-visible {
   color: var(--blue);
 }
 
-.featured-carousel-track {
+.featured-embla-viewport {
   --featured-card-width: min(82vw, 22rem);
+  overflow: hidden;
+  padding: 1.5rem max(1rem, calc((100% - var(--featured-card-width)) / 2));
+  touch-action: pan-y pinch-zoom;
+}
+
+.featured-embla-container {
   display: flex;
   gap: 1rem;
-  overflow-x: auto;
-  padding: 1.5rem max(1rem, calc((100% - var(--featured-card-width)) / 2));
-  scroll-padding-inline: max(1rem, calc((100% - var(--featured-card-width)) / 2));
-  scroll-snap-type: x mandatory;
-  scroll-snap-stop: always;
 }
 
 .featured-carousel-card {
   width: var(--featured-card-width);
-  flex: none;
-  scroll-snap-align: center;
+  min-width: 0;
+  flex: 0 0 var(--featured-card-width);
   opacity: 0.42;
   transform: scale(0.82);
   transform-origin: center;
@@ -342,12 +343,11 @@ input:focus-visible {
 }
 
 .featured-carousel-card-active > div {
-  border-color: var(--featured-accent);
-  background: var(--featured-surface);
+  border-color: var(--blue);
 }
 
 .featured-carousel-card-active .utility-label {
-  color: var(--featured-label);
+  color: var(--blue);
 }
 
 .featured-carousel-timer {
@@ -355,7 +355,7 @@ input:focus-visible {
   width: 5rem;
   height: 0.2rem;
   overflow: hidden;
-  background: var(--featured-surface);
+  background: var(--surface-strong);
 }
 
 .featured-carousel-timer-progress {
@@ -364,7 +364,7 @@ input:focus-visible {
   height: 100%;
   transform: scaleX(0);
   transform-origin: left;
-  background: var(--featured-accent);
+  background: var(--blue);
   animation: featured-carousel-progress 5s linear forwards;
 }
 
