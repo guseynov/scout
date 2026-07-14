@@ -177,7 +177,9 @@ export function DealFilters({ initialDeals, totalDeals }: DealFiltersProps) {
       });
       setAvailableDealCount(nextPage.total);
     } catch {
-      setLoadMoreError("The next set of finds is unavailable right now. Try again.");
+      setLoadMoreError(
+        "The next set of finds is unavailable right now. Try again.",
+      );
     } finally {
       setIsLoadingMore(false);
     }
@@ -270,7 +272,9 @@ export function DealFilters({ initialDeals, totalDeals }: DealFiltersProps) {
         ) : (
           <div className="grid min-h-80 place-items-center border border-dashed border-[var(--line)] bg-[var(--white)] px-6 text-center">
             <div>
-              <p className="text-2xl font-bold tracking-[-0.03em]">No finds match that check.</p>
+              <p className="text-2xl font-bold tracking-[-0.03em]">
+                No finds match that check.
+              </p>
               <p className="mt-3 text-sm text-[var(--muted)]">
                 Try a broader search or choose another category.
               </p>
@@ -292,14 +296,24 @@ export function DealFilters({ initialDeals, totalDeals }: DealFiltersProps) {
                 aria-busy={isLoadingMore}
               >
                 {isLoadingMore ? (
-                  <LoaderCircle aria-hidden="true" className="size-4 animate-spin" />
+                  <LoaderCircle
+                    aria-hidden="true"
+                    className="size-4 animate-spin"
+                  />
                 ) : (
-                  <ArrowDown aria-hidden="true" className="size-4" strokeWidth={1.8} />
+                  <ArrowDown
+                    aria-hidden="true"
+                    className="size-4"
+                    strokeWidth={1.8}
+                  />
                 )}
                 {isLoadingMore ? "Loading more finds" : "Load more finds"}
               </button>
               {loadMoreError && (
-                <p className="mt-3 text-sm font-medium text-[var(--signal)]" role="alert">
+                <p
+                  className="mt-3 text-sm font-medium text-[var(--signal)]"
+                  role="alert"
+                >
                   {loadMoreError}
                 </p>
               )}

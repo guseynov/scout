@@ -30,8 +30,16 @@ export function ShareDealButton({ title }: ShareDealButtonProps) {
   };
 
   return (
-    <button type="button" onClick={handleShare} className="button-secondary w-full sm:w-auto">
-      {copied ? <Check aria-hidden="true" className="size-4" /> : <Share2 aria-hidden="true" className="size-4" />}
+    <button
+      type="button"
+      onClick={handleShare}
+      className="button-secondary w-full sm:w-auto"
+    >
+      {copied ? (
+        <Check aria-hidden="true" className="size-4" />
+      ) : (
+        <Share2 aria-hidden="true" className="size-4" />
+      )}
       {copied ? "Link copied" : "Share this deal"}
     </button>
   );

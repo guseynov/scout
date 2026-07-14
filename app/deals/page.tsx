@@ -24,7 +24,9 @@ export default async function DealsPage() {
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(18rem,0.8fr)] lg:items-end">
           <div className="max-w-3xl">
             <p className="utility-label">Current find board</p>
-            <h1 className="page-title mt-4 max-w-4xl">The current Scout list.</h1>
+            <h1 className="page-title mt-4 max-w-4xl">
+              The current Scout list.
+            </h1>
           </div>
           <p className="max-w-sm text-base leading-7 text-[var(--muted)] lg:justify-self-end lg:pb-2">
             A practical shortlist of products people think are worth a look.

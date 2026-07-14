@@ -104,12 +104,17 @@ export default async function Home() {
         <div className="site-shell py-16 sm:py-20">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl">
-              <p className="featured-finds-label utility-label">Highlighted finds</p>
+              <p className="featured-finds-label utility-label">
+                Highlighted finds
+              </p>
               <h2 className="section-title mt-4">
                 A few things worth a <span>closer look.</span>
               </h2>
             </div>
-            <Link href="/deals" className="featured-finds-link text-link text-sm sm:mb-1">
+            <Link
+              href="/deals"
+              className="featured-finds-link text-link text-sm sm:mb-1"
+            >
               See the full board
               <ArrowRight
                 aria-hidden="true"

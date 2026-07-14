@@ -83,7 +83,8 @@ export function FeaturedDealsCarousel({ deals }: FeaturedDealsCarouselProps) {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const syncMotionPreference = () => setPrefersReducedMotion(mediaQuery.matches);
+    const syncMotionPreference = () =>
+      setPrefersReducedMotion(mediaQuery.matches);
 
     syncMotionPreference();
     mediaQuery.addEventListener("change", syncMotionPreference);
@@ -116,7 +117,7 @@ export function FeaturedDealsCarousel({ deals }: FeaturedDealsCarouselProps) {
 
     return () => {
       window.cancelAnimationFrame(frameId);
-    }
+    };
   }, [emblaApi, isAutoAdvancing, isCarouselReady]);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
@@ -166,7 +167,10 @@ export function FeaturedDealsCarousel({ deals }: FeaturedDealsCarouselProps) {
         <p className="text-sm text-[var(--muted)]">
           A short run of current picks from the board.
         </p>
-        <div className="flex shrink-0 items-center gap-2" aria-label="Carousel controls">
+        <div
+          className="flex shrink-0 items-center gap-2"
+          aria-label="Carousel controls"
+        >
           <button
             type="button"
             onClick={restartOrToggleAutoPlay}
@@ -174,7 +178,11 @@ export function FeaturedDealsCarousel({ deals }: FeaturedDealsCarouselProps) {
             aria-pressed={!isAutoPlayEnabled}
           >
             {isAutoPlayEnabled && !isAtFinalSlide ? (
-              <Pause aria-hidden="true" className="size-3.5" strokeWidth={1.8} />
+              <Pause
+                aria-hidden="true"
+                className="size-3.5"
+                strokeWidth={1.8}
+              />
             ) : (
               <Play aria-hidden="true" className="size-3.5" strokeWidth={1.8} />
             )}
@@ -187,7 +195,11 @@ export function FeaturedDealsCarousel({ deals }: FeaturedDealsCarouselProps) {
             className="grid size-10 place-items-center rounded-lg border border-[var(--line)] bg-[var(--white)] text-[var(--ink)] transition hover:border-[var(--ink)] hover:bg-[var(--surface)] disabled:cursor-not-allowed disabled:opacity-35"
             aria-label="Show previous highlighted find"
           >
-            <ArrowLeft aria-hidden="true" className="size-4" strokeWidth={1.8} />
+            <ArrowLeft
+              aria-hidden="true"
+              className="size-4"
+              strokeWidth={1.8}
+            />
           </button>
           <button
             type="button"
@@ -196,21 +208,34 @@ export function FeaturedDealsCarousel({ deals }: FeaturedDealsCarouselProps) {
             className="grid size-10 place-items-center rounded-lg border border-[var(--line)] bg-[var(--white)] text-[var(--ink)] transition hover:border-[var(--ink)] hover:bg-[var(--surface)] disabled:cursor-not-allowed disabled:opacity-35"
             aria-label="Show next highlighted find"
           >
-            <ArrowRight aria-hidden="true" className="size-4" strokeWidth={1.8} />
+            <ArrowRight
+              aria-hidden="true"
+              className="size-4"
+              strokeWidth={1.8}
+            />
           </button>
         </div>
       </div>
 
       <div className="mb-1 flex items-center gap-3 text-xs font-bold text-[var(--muted)]">
         <span>
-          {String(activeIndex + 1).padStart(2, "0")} / {String(deals.length).padStart(2, "0")}
+          {String(activeIndex + 1).padStart(2, "0")} /{" "}
+          {String(deals.length).padStart(2, "0")}
         </span>
-        <span className="featured-carousel-timer" data-paused={!isAutoAdvancing} aria-hidden="true">
+        <span
+          className="featured-carousel-timer"
+          data-paused={!isAutoAdvancing}
+          aria-hidden="true"
+        >
           <span key={timerKey} className="featured-carousel-timer-progress" />
         </span>
       </div>
 
-      <div className="featured-embla-viewport" ref={emblaRef} aria-label="Highlighted Scout finds">
+      <div
+        className="featured-embla-viewport"
+        ref={emblaRef}
+        aria-label="Highlighted Scout finds"
+      >
         <div className="featured-embla-container">
           {deals.map((deal, index) => {
             const isActive = index === activeIndex;
