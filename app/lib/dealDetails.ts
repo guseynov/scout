@@ -1,9 +1,10 @@
 import { queryOptions } from "@tanstack/react-query";
+import { cache } from "react";
 import { dealDetailsSchema, type DealDetails } from "@/app/types/deal";
 
 const DEAL_DETAILS_QUERY_KEY = "deal-details";
 
-export async function getDealDetails(id: number): Promise<DealDetails> {
+export const getDealDetails = cache(async (id: number): Promise<DealDetails> => {
   const response = await fetch(`https://dummyjson.com/product/${id}`);
 
   if (!response.ok) {
@@ -11,7 +12,7 @@ export async function getDealDetails(id: number): Promise<DealDetails> {
   }
 
   return dealDetailsSchema.parse(await response.json());
-}
+});
 
 export function getDealDetailsQueryOptions(id: number) {
   return queryOptions({

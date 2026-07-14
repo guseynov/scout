@@ -21,7 +21,7 @@ export function DealDetailsPreview({
     <div
       id={previewId}
       role="status"
-      className="absolute inset-x-4 bottom-4 z-20 rounded-2xl border border-white/10 bg-[color:rgba(32,37,31,0.94)] p-4 text-white shadow-2xl backdrop-blur-md"
+      className="pointer-events-none absolute inset-x-4 bottom-4 z-20 rounded-2xl border border-white/10 bg-[color:rgba(32,37,31,0.94)] p-4 text-white shadow-2xl backdrop-blur-md"
     >
       {isPending && (
         <div className="space-y-3" aria-label="Loading deal details">

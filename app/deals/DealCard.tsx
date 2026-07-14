@@ -2,8 +2,8 @@
 
 import type { Deal } from "@/app/types/deal";
 import clsx from "clsx";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useState } from "react";
 import { DealDetailsPreview } from "./DealDetailsPreview";
 
@@ -31,23 +31,30 @@ export function DealCard({ deal, priority = false }: DealCardProps) {
   }, []);
 
   return (
-    <article
+    <Link
+      href={`/deals/${deal.id}`}
       className="deal-card group relative z-0 flex min-w-0 flex-col transition duration-300 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-4"
-      tabIndex={0}
       aria-describedby={isPreviewOpen ? previewId : undefined}
       onMouseEnter={handlePreviewOpen}
       onMouseLeave={handlePreviewClose}
       onFocus={handlePreviewOpen}
       onBlur={handlePreviewClose}
     >
-      <div className="relative aspect-[4/4.2] overflow-hidden rounded-[1.75rem] border border-black/[0.06] bg-[var(--surface)] transition duration-300 ease-out group-hover:-translate-y-0.5 group-focus-visible:-translate-y-0.5">
+      <div
+        className="relative aspect-[4/4.2] overflow-hidden rounded-[1.75rem] border border-black/[0.06] bg-[var(--surface)] transition duration-300 ease-out group-hover:-translate-y-0.5 group-focus-visible:-translate-y-0.5"
+      >
         <div
           title={category}
           className="absolute left-4 top-4 z-10 max-w-[calc(100%_-_2rem)] truncate rounded-full border border-black/10 bg-[color:rgba(255,255,255,0.78)] px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.1em] backdrop-blur-md"
         >
           {category}
         </div>
-        <div className={clsx("absolute inset-0", loading && "animate-pulse bg-black/[0.04]")}>
+        <div
+          className={clsx(
+            "absolute inset-0",
+            loading && "animate-pulse bg-black/[0.04]",
+          )}
+        >
           <Image
             src={imageUrl}
             alt={title}
@@ -61,26 +68,16 @@ export function DealCard({ deal, priority = false }: DealCardProps) {
             )}
           />
         </div>
-        <div className="absolute bottom-4 right-4 grid size-10 translate-y-2 place-items-center rounded-full bg-[var(--ink)] text-white opacity-0 shadow-lg transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-          <ArrowRight
-            aria-hidden="true"
-            className="size-4 transition-transform group-hover:translate-x-0.5"
-            strokeWidth={1.5}
-          />
-        </div>
-        <span className="absolute bottom-4 left-4 rounded-full border border-black/10 bg-[color:rgba(255,255,255,0.82)] px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-[var(--ink)] shadow-sm transition duration-300 group-hover:bg-white group-focus-visible:bg-white">
-          Quick view
-        </span>
+
         {isPreviewOpen && (
           <DealDetailsPreview dealId={deal.id} previewId={previewId} />
         )}
       </div>
-
       <div className="flex flex-1 flex-col px-1 pt-4">
         <div className="flex min-w-0 items-start justify-between gap-4">
           <h2
             title={title}
-            className="line-clamp-2 min-h-[2.75rem] min-w-0 break-words text-base font-semibold leading-snug tracking-[-0.015em]"
+            className="line-clamp-2 min-w-0 break-words text-base font-semibold leading-snug tracking-[-0.015em]"
           >
             {title}
           </h2>
@@ -98,6 +95,6 @@ export function DealCard({ deal, priority = false }: DealCardProps) {
           {description}
         </p>
       </div>
-    </article>
+    </Link>
   );
 }

@@ -14,6 +14,7 @@ export const dealDetailsSchema = productDtoSchema.extend({
   rating: z.number(),
   stock: z.number(),
   brand: z.string().optional(),
+  images: z.array(z.url()).min(1),
   warrantyInformation: z.string(),
   shippingInformation: z.string(),
   availabilityStatus: z.string(),
