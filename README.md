@@ -2,6 +2,9 @@
 
 A Next.js marketplace demo for discovering community-curated products with shareable filters and cached on-demand details.
 
+# Live demo
+https://scout-deals-fawn.vercel.app/
+
 ## Features
 
 - Server-rendered product catalog backed by DummyJSON
