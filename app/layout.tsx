@@ -8,10 +8,6 @@ export const metadata: Metadata = {
     template: "%s | Scout",
   },
   description: "Useful finds, checked by people.",
-  icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    shortcut: "/icon.svg",
-  },
 };
 
 export default function RootLayout({
